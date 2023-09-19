@@ -2105,8 +2105,8 @@ echo -e "\033[0;31m║\033[0m"
 			} || {
 				sts2="\033[1;31m○ "
 			}
-			[[ "$(netstat -tlpn | grep 'apache2' | wc -l)" != '0' ]] && {
-				echo -e "\033[01;31m║\033[1;32mSERVICIO: \033[1;33mAPP ONLINE \033[1;32mPUERTO: \033[1;37m$(netstat -nplt | grep 'apache2' | awk -F ":" {'print $4'} | xargs)"
+			[[ "$(netstat -tlpn | grep 'onapp_ssh' | wc -l)" != '0' ]] && {
+				echo -e "\033[01;31m║\033[1;32mSERVICIO: \033[1;33mAPP ONLINE \033[1;32mPUERTO: \033[1;37m$(netstat -nplt | grep 'onapp_ssh' | awk -F ":" {'print $4'} | xargs)"
 				onapp_ssh="\033[1;32m◉ "
 			} || {
 				onapp_ssh="\033[1;31m○ "
