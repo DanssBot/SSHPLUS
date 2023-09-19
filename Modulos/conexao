@@ -2105,6 +2105,12 @@ echo -e "\033[0;31m║\033[0m"
 			} || {
 				sts2="\033[1;31m○ "
 			}
+			[[ "$(netstat -tlpn | grep 'apache2' | wc -l)" != '0' ]] && {
+				echo -e "\033[01;31m║\033[1;32mSERVICIO: \033[1;33mAPP ONLINE \033[1;32mPUERTO: \033[1;37m$(netstat -nplt | grep 'apache2' | awk -F ":" {'print $4'} | xargs)"
+				sts2="\033[1;32m◉ "
+			} || {
+				sts2="\033[1;31m○ "
+			}
 			[[ "$(netstat -tlpn | grep 'squid' | wc -l)" != '0' ]] && {
 				echo -e "\033[01;31m║\033[1;32mSERVICIO: \033[1;33mSQUID \033[1;32mPUERTO: \033[1;37m$(netstat -nplt | grep 'squid' | awk -F ":" {'print $4'} | xargs)"
 				sts1="\033[1;32m◉ "
