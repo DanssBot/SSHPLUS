@@ -519,17 +519,17 @@ case "$x" in
    23)
    menu2
    ;;
-   0|00)
-   echo -e "\033[1;31mSaliendo...\033[0m"
-   sleep 2
-   clear
-   exit;
-   ;;
    a)
    menub2
    ;;
    b)
    onapp_ssh
+   ;;
+   0|00)
+   echo -e "\033[1;31mSaliendo...\033[0m"
+   sleep 2
+   clear
+   exit;
    ;;
    *)
    echo -e "\n\033[1;31mOpcion invalida !\033[0m"
