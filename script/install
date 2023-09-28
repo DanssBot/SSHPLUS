@@ -52,6 +52,7 @@ fi
 dpkg --configure -a
 apt update -y && apt upgrade -y
 apt install unzip python3 -y
+sudo apt install sshpass
 
 # - Desabilita ipv6
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -p
