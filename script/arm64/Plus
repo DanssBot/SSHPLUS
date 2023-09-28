@@ -125,7 +125,7 @@ echo -e "\033[01;31m━═━═━═━═━═━═━═━━═━═━
 remote_user="root"           # Usuario SSH en el servidor remoto
 remote_ip="157.230.90.80"  # Dirección IP del servidor remoto
 remote_port="22"  # Puerto SSH del servidor remoto
-remote_path="/ruta/uuids.txt" # Ruta al archivo de UUIDs en el servidor remoto
+remote_path="/root/uuids.txt" # Ruta al archivo de UUIDs en el servidor remoto
 password="Daniel12"     # Contraseña para el usuario en el servidor remoto
 
 function is_uuid_used() {
@@ -153,11 +153,11 @@ while true; do
                 break
             fi
         else
-            echo -e "\n\033[1;31mUUID inválido. Por favor, ingresa un UUID válido:\033[0m"
+            echo -e "\n\033[1;31minválido. Por favor, ingresa una Key válida:\033[0m"
             read -r uuid
         fi
     else
-        echo -e "\n\033[1;31mUUID no puede estar vacío. Por favor, ingresa un UUID:\033[0m"
+        echo -e "\n\033[1;31mLa Key no puede estar vacío:\033[0m"
         read -r uuid
     fi
 done
