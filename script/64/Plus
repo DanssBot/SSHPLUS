@@ -185,7 +185,7 @@ done
     chmod 777 licence >/dev/null 2>&1
     cd >/dev/null 2>&1
     #-----------------------------------------------------------------------------------------------------------------
-    echo -e "\n\033[1;32mKEY VALIDA 😃!\033[1;32m"
+    echo -e "\n\033[1;32mKEY VALIDA DESENCADENANDO ARCHIVOS!\033[1;32m"
     sleep 1s
     echo ""
     [[ -f "$HOME/usuarios.db" ]] && {
