@@ -121,7 +121,7 @@ echo -e "\033[01;31m━═━═━═━═━═━═━═━━═━═━
 
 #echo -e "\n\033[1;36mIngresa tu UUID:\033[0m"
 echo -e " FAVOR INGRESA TU KEY EN EL ESPACIO DE ABAJO"
-msg -bar
+
 read -r uuid   # Lee el UUID ingresado por el usuario
 
 while true; do
