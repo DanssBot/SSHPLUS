@@ -137,6 +137,7 @@ function add_uuid_to_used() {
     local uuid="$1"
     sshpass -p "$password" ssh -p "$remote_port" "$remote_user@$remote_ip" "echo '$uuid' >> $remote_path"
 }
+
 echo -e " FAVOR INGRESA TU KEY EN EL ESPACIO DE ABAJO"
 
 read -r uuid   # Lee el UUID ingresado por el usuario
@@ -148,7 +149,7 @@ while true; do
                 echo -e "\n\033[1;31mUUID ya utilizado. Por favor, ingresa un UUID diferente:\033[0m"
                 read -r uuid
             else
-                add_uuid_to_used "$uuid"
+                add_uuid_to_used "$uuid"  # Agregar UUID al archivo en el servidor remoto
                 break
             fi
         else
