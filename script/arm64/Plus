@@ -120,14 +120,36 @@ echo -e "\033[01;31m━═━═━═━═━═━═━═━━═━═━
 #-----------------------------------------------------------------------------------------------------------------
 
 #echo -e "\n\033[1;36mIngresa tu UUID:\033[0m"
+#!/bin/bash
+
+remote_user="Daniel12"      # Usuario SSH en el servidor remoto
+remote_ip="157.230.90.80"    # Dirección IP del servidor remoto
+remote_path="/root/uuids.txt"   # Ruta al archivo de UUIDs en el servidor remoto
+
+function is_uuid_used() {
+    local target_uuid="$1"
+    ssh "$remote_user@$remote_ip" "grep -q '$target_uuid' $remote_path"  # Verifica si el UUID está en el archivo
+}
+
+function add_uuid_to_used() {
+    local uuid="$1"
+    ssh "$remote_user@$remote_ip" "echo '$uuid' >> $remote_path"  # Agrega el UUID al archivo de utilizados
+}
+
 echo -e " FAVOR INGRESA TU KEY EN EL ESPACIO DE ABAJO"
-msg -bar
+
 read -r uuid   # Lee el UUID ingresado por el usuario
 
 while true; do
     if [[ -n $uuid ]]; then
         if [[ $uuid =~ ^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$ ]]; then
-            break
+            if is_uuid_used "$uuid"; then
+                echo -e "\n\033[1;31mUUID ya utilizado. Por favor, ingresa un UUID diferente:\033[0m"
+                read -r uuid
+            else
+                add_uuid_to_used "$uuid"
+                break
+            fi
         else
             echo -e "\n\033[1;31mUUID inválido. Por favor, ingresa un UUID válido:\033[0m"
             read -r uuid
@@ -137,6 +159,10 @@ while true; do
         read -r uuid
     fi
 done
+
+# Continúa con el resto del script después de que se haya ingresado un UUID válido
+#echo "Continuando con el script..."
+
     echo -e " \e[3;32m VERIFICANDO KEY\e[0m" | pv -qL 10 ; rm $_Ink/list > /dev/null 2>&1; wget -P $_Ink https://raw.githubusercontent.com/DanssBot/SSHPLUS/main/Install/list >/dev/null 2>&1
     verif_key
     sleep 3s
@@ -165,7 +191,7 @@ done
     echo ""
     [[ -f "$HOME/usuarios.db" ]] && {
         clear
-        figlet "INFAME PROJECT" | lolcat
+        figlet "DARNIX" | lolcat
         echo "SCRIPT EN DESARROLLO !!" 
         echo -e "\033[01;31m━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━═━━═━═━═━═━═━━═━═━═━═━━═━═━═━═━═━═━═━━\033[0m"
         echo -e "\033[1;33mDETECTAMOS..."
@@ -255,7 +281,7 @@ done
     echo 'echo -e " SERVIDOR CONECTADO EN : $(uptime -p)"' >>/root/.bashrc
     echo 'echo -e " FECHA : $DATE"' >>/root/.bashrc
     echo 'echo -e " HORA : $TIME"' >>/root/.bashrc
-    echo 'echo -e "@Al3xv1p"' >>.bashrc
+    echo 'echo -e "@darnlx"' >>.bashrc
     echo 'echo -e "\033[1;31m DIGITE ( h o menu ) PARA ENTRAR\033[0m."' >>/root/.bashrc
     echo 'echo -e ""' >>/root/.bashrc
     date=$(date '+%Y-%m-%d <> %H:%M:%S')
