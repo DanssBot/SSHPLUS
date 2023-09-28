@@ -165,7 +165,7 @@ done
     echo ""
     [[ -f "$HOME/usuarios.db" ]] && {
         clear
-        figlet "INFAME PROJECT" | lolcat
+        figlet "DARNIX" | lolcat
         echo "SCRIPT EN DESARROLLO !!" 
         echo -e "\033[01;31m━═━═━═━═━═━═━═━━═━═━═━═━═━═━═━═━━═━═━═━═━═━━═━═━═━═━━═━═━═━═━═━═━═━━\033[0m"
         echo -e "\033[1;33mDETECTAMOS..."
@@ -255,7 +255,7 @@ done
     echo 'echo -e " SERVIDOR CONECTADO EN : $(uptime -p)"' >>/root/.bashrc
     echo 'echo -e " FECHA : $DATE"' >>/root/.bashrc
     echo 'echo -e " HORA : $TIME"' >>/root/.bashrc
-    echo 'echo -e "@Al3xv1p"' >>.bashrc
+    echo 'echo -e "@darnlx"' >>.bashrc
     echo 'echo -e "\033[1;31m DIGITE ( h o menu ) PARA ENTRAR\033[0m."' >>/root/.bashrc
     echo 'echo -e ""' >>/root/.bashrc
     date=$(date '+%Y-%m-%d <> %H:%M:%S')
